@@ -1,0 +1,116 @@
+package za.ac.pvi.employee;
+
+import za.ac.pvi.stocks.Product;
+
+public class Employee{
+
+	public String surname;
+	public String name;
+	public long id;
+	public int phoneNumber;
+	public String employeeNumber;
+	public String userName;
+	public String userPassword;
+	public String superUserCode;
+
+	public Employee(){}
+
+	public void register(String surname, String name, long id, String employeeNumber, String userName, String userPassword){
+		this.surname = surname;
+		this.name = name;
+		this.id = id;
+		this.employeeNumber = employeeNumber;
+		this.userName = userName;
+		this.userPassword = userPassword;
+		return;
+		}
+
+	public boolean logIn(String userName, String userPassword){
+		if(userName.equals(this.userName) && userPassword.equals(this.userPassword)){
+			return true;
+		}
+		else{return false;}
+
+		}
+
+	public void cancelSale(){
+
+		return;
+		}
+
+	public boolean stockInventory(Product product, Product [] products, String inPutedStockNumber, int b){
+
+		products[b].stockQuantity = products[b].quantityReceived - products[b].quantity;
+
+		if(inPutedStockNumber.equals(products[b].stockNumber)){
+
+		System.out.println("Name :" + products[b].name);
+		System.out.println("Size :" + products[b].size);
+		System.out.println("Type :" + products[b].type);
+		System.out.println("Color :" + products[b].color);
+		System.out.println("Barcode :" + products[b].barCode);
+		System.out.println("Delivery Date :" + products[b].deliveryDate);
+		System.out.println("Quantity :" + products[b].stockQuantity);
+			return true;
+		}
+		else {System.out.println("Invalid Stock Number, Try again!");
+			 return false; }
+			}
+
+	public void delivery(Product product, Product [] products, int b){
+			return;
+		}
+
+	public void reporting(){
+
+		return;
+		}
+
+	public boolean authorize(String userName, String userPassword, String superUserCode){
+			this.superUserCode = "rs123";
+	if(userName.equals(this.userName) && userPassword.equals(this.userPassword) && superUserCode.equals(this.superUserCode)){
+			return true;
+		}
+		else {return false;}
+		}
+
+	public boolean scanBarCode(Product product, Product [] products, String scannedBarCode, int b){
+
+		if(products[b].barCode.equals(scannedBarCode)){
+
+		System.out.println("Item description");
+		System.out.print(products[b].name + "	");
+		System.out.print(products[b].size + "	");
+		System.out.print(products[b].type + "	");
+		System.out.println(products[b].color);
+
+			return true;
+		}
+		else {	return false;	}
+		}
+
+	public void printReceipt(Product product, Product [] products, Employee [] employees, String receiptPass, int b){
+		if(receiptPass.equals("R")){
+	System.out.println("	Tax Invoice	");
+		System.out.println("Chin Gao Clothing	");
+		System.out.println("327 Bruce Lee street, Xiquang, China ");
+		System.out.println("Tel No: +9995874652189");
+		System.out.println();
+		System.out.println(products[b].name);
+		System.out.println(products[b].size);
+		System.out.println(products[b].type);
+		System.out.println(products[b].quantity);
+		System.out.println("BARCODE:" + products[b].barCode);
+		System.out.println();
+		System.out.println("Netprice..... : " + products[b].price);
+		System.out.println("Vat.......... : " + products[b].vat);
+		System.out.println("Total........ : " + products[b].totalPrice);
+		System.out.println("Balance...... : " + products[b].change);
+		System.out.println();
+		System.out.println("Your cashier is:   " + employees[0].name);
+		System.out.println("HAVE A NICE DAY!!!!!!!");
+				}
+		else{ System.out.println("Wrong Entry");}
+		}
+
+}
