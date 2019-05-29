@@ -13,7 +13,7 @@ public class ApplicationPikachu{
 
 		Employee employee = new Employee();
 		Employee [] employees = new Employee[3];
-		employees[0] = employee;
+
 
 		Customer customer = new Customer();
 
@@ -49,7 +49,7 @@ public class ApplicationPikachu{
 		System.out.println("*** Enter your Password.");
 		String inputPassword = scanner.nextLine();
 
-		employees[0].setName(inputname);
+		employee.setName(inputname);
 		
 
 
