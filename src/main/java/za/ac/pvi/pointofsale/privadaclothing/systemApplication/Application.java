@@ -1,5 +1,6 @@
 package za.ac.pvi.pointofsale.privadaclothing.systemApplication;
 
+import za.ac.pvi.pointofsale.privadaclothing.stock.Product;
 import za.ac.pvi.pointofsale.privadaclothing.people.Employee;
 import za.ac.pvi.pointofsale.privadaclothing.people.Person;
 import java.util.Scanner;
@@ -11,6 +12,8 @@ public class Application{
                 Scanner scanner = new Scanner(System.in);
 
                 Employee employee = new Employee();
+
+		Product product = new Product();
 
                 boolean loggedIn = false;
 
@@ -83,12 +86,50 @@ public class Application{
                 System.exit(1);
                         }
 
+		System.out.println(" DELIVERY ");
+		System.out.println();
+
+		System.out.println("*** Item Name. ");
+		String itemName = scanner.nextLine();
+		product.setName(itemName);
+
+		System.out.println(" Size ");
+		String itemSize = scanner.nextLine();
+		product.setSize(itemSize);
+
+		System.out.println(" Color ");
+		String itemColor = scanner.nextLine();
+		product.setColor(itemColor);
+
+		System.out.println(" Type ");
+		String itemType = scanner.nextLine();
+		product.setType(itemType);
+
+		System.out.println(" Barcode ");
+                String itemBarcode = scanner.nextLine();
+                product.setBarcode(itemBarcode);
+
+		System.out.println(" Stock Number ");
+                String itemNumber = scanner.nextLine();
+                product.setProductNumber(itemNumber);
+
+		System.out.println(" Delivery Date ");
+                String itemDeliveryDate = scanner.nextLine();
+                product.setDeliveryDate(itemDeliveryDate);
+
+		System.out.println(" Quantity ");
+                int itemQuantityReceived = scanner.nextInt();
+                product.setQuantityReceived(itemQuantityReceived);
+
+		employee.delivery(product);
+
 		for(int a=0; a<3; a++){
 		System.out.println();
                 System.out.println("    AUTHORIZE!!!    ");
                 System.out.println();
 
                 System.out.println("*** Enter your Username.");
+		scanner.nextLine();
                 String loginUserName = scanner.nextLine();
 
                 System.out.println("*** Enter your Password.");
