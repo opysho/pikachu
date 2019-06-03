@@ -4,6 +4,7 @@ import za.ac.pvi.pointofsale.privadaclothing.stock.Product;
 import za.ac.pvi.pointofsale.privadaclothing.people.Employee;
 import za.ac.pvi.pointofsale.privadaclothing.people.Person;
 import java.util.Scanner;
+import za.ac.pvi.pointofsale.privadaclothing.userinterface.UserInterface;
 
 public class Application{
 
@@ -16,6 +17,8 @@ public class Application{
 		Product product = new Product();
 
                 boolean loggedIn = false;
+		short selectedOption;
+		UserInterface userinterface = new UserInterface();
 
                 System.out.println();
                 System.out.println("****        WELCOME TO PRIVADA CLOTHING!!!      *****");
@@ -37,7 +40,7 @@ public class Application{
                 employee.setId(inputId);
 
                 System.out.println("*** Enter your Phone Number.");
-                int inputPhoneNumber = scanner.nextInt();
+                long inputPhoneNumber = scanner.nextInt();
                 employee.setPhoneNumber(inputPhoneNumber);
 
 		System.out.println("*** Enter your Employee Number.");
@@ -86,6 +89,13 @@ public class Application{
                 System.exit(1);
                         }
 
+		userinterface.menu();
+
+		System.out.println("Enter selected option");
+		selectedOption = scanner.nextShort();
+		System.out.println();
+
+		if(selectedOption == 1){
 		System.out.println(" DELIVERY ");
 		System.out.println();
 
@@ -122,6 +132,8 @@ public class Application{
                 product.setQuantityReceived(itemQuantityReceived);
 
 		employee.delivery(product);
+
+				}
 
 		for(int a=0; a<3; a++){
 		System.out.println();

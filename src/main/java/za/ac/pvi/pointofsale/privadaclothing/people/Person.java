@@ -6,7 +6,7 @@ public abstract class Person{
                 private String name;
                 private String surname;
                 private long id;
-                private int phoneNumber;
+                private long phoneNumber;
                 private String userName;
                 private String userPassword;
                 private String employeeNumber;
@@ -40,11 +40,11 @@ public abstract class Person{
                         return this.id;
                                 }
 
-                public void setPhoneNumber(int phoneNumber){
+                public void setPhoneNumber(long phoneNumber){
                         this.phoneNumber = phoneNumber;
                                 }
 
-                public int getPhoneNumber(){
+                public long getPhoneNumber(){
                         return this.phoneNumber;
                                 }
 
@@ -78,7 +78,7 @@ public abstract class Person{
                         return this.superUserCode;
                                 }
 
-                public void register(String name, String surname, long id, int phoneNumber, String employeeNumber, String userName, String userPassword){
+                public void register(String name, String surname, long id, long phoneNumber, String employeeNumber, String userName, String userPassword){
                 this.name = name;
                 this.surname = surname;
                 this.id = id;
